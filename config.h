@@ -62,24 +62,22 @@ static const char unknown_str[] = "n/a";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
 static const struct arg args[] = {
-	/* function format          argument */
-	//{ datetime, "%s",           "%F %T" },
-	//{ wifi_perc, "W: (%3s%% on ", "wlp8s0" },
-        { netspeed_rx,       "%sB/s ", "wlp3s0" },
-	// Battery
-	{ battery_perc,      "[BAT %s%% ",  "BAT1" },
-	{ battery_state,     "%s ",     "BAT1" },
-	{ battery_remaining, "%s] ",    "BAT1" },
-	// Storage
-	{disk_free, "[DISK %s] ", "/"},
-	// Temp
-	{temp, "[TEMP %s⁰C] ", "/sys/class/hwmon/hwmon4/temp1_input"}, 
-	// CPU
-	{ cpu_perc, "[CPU %s%%] ", NULL	      },
-	// RAM
-	{ ram_perc, "[RAM %s%%] ", NULL	      },
-	// DATE TIME
-	{ datetime, "%s",           "%a %F %R" },
+    { netspeed_rx       , "Wr: %s B/s "  , "wlan0"                               },
+    { netspeed_tx       , "Wt: %s B/s "  , "wlan0"                               },
+
+    { battery_perc      , "[BAT %s%% "   , "BAT1"                                },
+    { battery_state     , "%s "          , "BAT1"                                },
+    { battery_remaining , "%s] "         , "BAT1"                                },
+
+    { disk_free         , "[DISK %s "    , "/"                                   },
+    { disk_perc         , "%s%% "        , "/"                                   },
+    { disk_total        , "%s] "         , "/"                                   },
+
+    { temp              , "[TEMP %s⁰C] " , "/sys/class/hwmon/hwmon4/temp1_input" },
+
+    { cpu_perc          , "[CPU %s%%] "  , NULL                                  },
+    { ram_perc          , "[RAM %s%%] "  , NULL                                  },
+    { datetime          , "%s"           , "%a %F %R"                            },
 };
 
 
